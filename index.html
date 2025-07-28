@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Happy Birthday Tiyas ✨</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .dancing-script {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Rose petals with better visibility */
+        .rose-petal {
+            position: fixed;
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(135deg, #ff6fa3, #ff8fa3);
+            border-radius: 0 100% 50% 100%;
+            pointer-events: none;
+            z-index: 5;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Enhanced sparkles */
+        .sparkle {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 182, 193, 0.6);
+            z-index: 10;
+        }
+
+        /* High contrast gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #d63384, #f06292, #e91e63);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        /* Dark text for better readability */
+        .dark-text {
+            color: #4a1e3d;
+        }
+
+        /* Enhanced shadows for depth */
+        .elegant-shadow {
+            box-shadow: 
+                0 4px 6px rgba(0, 0, 0, 0.1),
+                0 10px 20px rgba(255, 182, 193, 0.2),
+                0 20px 40px rgba(255, 182, 193, 0.15),
+                inset 0 2px 4px rgba(255, 255, 255, 0.6);
+        }
+
+        /* Better glass morphism with white tint */
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Soft pink gradient background */
+        .pink-gradient {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe0f0 25%, #f8e1ff 50%, #ffe0f0 75%, #fff5f5 100%);
+        }
+
+        /* Button styles with better contrast */
+        .pink-button {
+            background: linear-gradient(135deg, #e91e63, #f06292);
+            color: white;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+        }
+
+        .pink-button:hover {
+            background: linear-gradient(135deg, #d81b60, #ec407a);
+            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+        }
+
+        /* Heart shape with better colors */
+        .heart-shape {
+            display: inline-block;
+            width: 50px;
+            height: 45px;
+            position: relative;
+            transform: rotate(-45deg);
+            background: linear-gradient(135deg, #ff4081, #ff6ec7);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 64, 129, 0.3);
+        }
+
+        .heart-shape:before,
+        .heart-shape:after {
+            content: '';
+            width: 50px;
+            height: 45px;
+            position: absolute;
+            background: linear-gradient(135deg, #ff4081, #ff6ec7);
+            border-radius: 50px 50px 0 0;
+        }
+
+        .heart-shape:before {
+            left: 25px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart-shape:after {
+            left: 0;
+            top: -25px;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        .heart-shape:hover {
+            transform: rotate(-45deg) scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 64, 129, 0.4);
+        }
+
+        /* Floating animation */
+        @keyframes floatUp {
+            0% {
+                opacity: 0;
+                transform: translateY(100px) rotate(0deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-1000px) rotate(360deg);
+            }
+        }
+
+        .floating-element {
+            animation: floatUp 10s ease-in-out infinite;
+        }
+
+        /* Shimmer effect */
+        .shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shimmer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+            transition: left 0.5s;
+        }
+
+        .shimmer:hover::after {
+            left: 100%;
+            transition: left 1s;
+        }
+
+        /* Subtle float animation */
+        @keyframes subtle-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .subtle-float {
+            animation: subtle-float 3s ease-in-out infinite;
+        }
+
+        /* Fade in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        /* Special glow for Tiyas */
+        .tiyas-glow {
+            text-shadow: 
+                0 0 30px rgba(255, 64, 129, 0.5),
+                0 0 60px rgba(255, 64, 129, 0.3),
+                0 0 90px rgba(255, 64, 129, 0.1);
+        }
+
+        /* Butterfly decoration */
+        .butterfly {
+            position: fixed;
+            font-size: 2rem;
+            z-index: 15;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        /* Enhanced progress dots */
+        .progress-dot {
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="pink-gradient min-h-screen overflow-hidden">
+    <div id="app">
+        <!-- Background Elements -->
+        <div id="petals-container"></div>
+        <div id="sparkles-container"></div>
+        
+        <!-- Decorative butterflies -->
+        <div class="butterfly" style="top: 10%; left: 5%; animation: floatUp 15s ease-in-out infinite;">🦋</div>
+        <div class="butterfly" style="top: 70%; right: 10%; animation: floatUp 18s ease-in-out infinite; animation-delay: 3s;">🌸</div>
+
+        <!-- Page 1: Gift -->
+        <div v-if="currentPage === 1" class="min-h-screen flex flex-col items-center justify-center p-4 relative z-20 fade-in">
+            <h1 class="text-5xl md:text-6xl dancing-script gradient-text mb-12 text-center font-bold">
+                A magical surprise awaits...
+            </h1>
+            <div @click="goToPage(2)" class="cursor-pointer transform hover:scale-110 transition-transform duration-300">
+                <div class="text-8xl subtle-float filter drop-shadow-2xl">🎁</div>
+            </div>
+            <p class="mt-8 text-xl dark-text text-center font-medium">
+                Touch the gift to begin ✨
+            </p>
+        </div>
+
+        <!-- Page 2: Something for you -->
+        <div v-if="currentPage === 2" class="min-h-screen flex flex-col items-center justify-center p-4 relative z-20 fade-in">
+            <div class="text-center">
+                <div class="relative inline-block mb-10">
+                    <img src="https://media1.tenor.com/m/3WxG2VePWSUAAAAC/bubududu-panda.gif" 
+                         alt="Bubududu Panda" 
+                         class="w-72 h-72 mx-auto rounded-full elegant-shadow object-cover">
+                    <div class="absolute inset-0 rounded-full shimmer pointer-events-none"></div>
+                </div>
+                <h2 class="text-4xl md:text-5xl dancing-script mb-6 gradient-text font-bold">
+                    For someone very special
+                </h2>
+                <p class="text-xl dark-text mb-10 playfair italic font-medium">
+                    Because you deserve all the magic in the world...
+                </p>
+                <button 
+                    @click="goToPage(3)"
+                    class="pink-button py-4 px-12 rounded-full text-lg transform transition-all duration-500 hover:scale-105 shimmer"
+                >
+                    Continue ✨
+                </button>
+            </div>
+        </div>
+
+        <!-- Page 3: Click Hearts -->
+        <div v-if="currentPage === 3" class="min-h-screen flex flex-col items-center justify-center p-4 relative z-20 fade-in">
+            <h2 class="text-3xl md:text-4xl dancing-script dark-text mb-12 text-center font-bold">
+                Collect all the hearts with love 💖
+            </h2>
+            <div class="grid grid-cols-2 gap-10 max-w-md w-full mb-10">
+                <div v-for="(heart, index) in hearts" :key="index" class="flex items-center justify-center">
+                    <div v-if="!heart.clicked" @click="clickHeart(index)" class="heart-shape"></div>
+                </div>
+            </div>
+            <div class="text-center">
+                <p class="text-lg dark-text mb-4 font-medium">
+                    <span class="font-bold text-3xl text-pink-600">{{ heartsClicked }}</span>
+                    <span class="text-gray-600"> of </span>
+                    <span class="font-bold text-3xl text-pink-500">4</span>
+                    <span class="text-gray-600"> hearts collected</span>
+                </p>
+                <div class="flex justify-center space-x-3">
+                    <div v-for="i in 4" :key="i" 
+                         class="progress-dot w-4 h-4 rounded-full transition-all duration-500"
+                         :class="heartsClicked >= i ? 'bg-pink-500 scale-125' : 'bg-gray-300'">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 4: Someone has birthday -->
+        <div v-if="currentPage === 4" class="min-h-screen flex flex-col items-center justify-center p-4 relative z-20 fade-in">
+            <div class="text-center">
+                <h1 class="text-5xl md:text-6xl dancing-script gradient-text mb-6 font-bold">
+                    Someone wonderful
+                </h1>
+                <h2 class="text-3xl md:text-4xl dark-text mb-10 font-medium">
+                    is celebrating today
+                </h2>
+                <img src="https://media1.tenor.com/m/3WxG2VePWSUAAAAC/bubududu-panda.gif" 
+                     alt="Bubududu Panda" 
+                     class="w-48 h-48 mx-auto subtle-float rounded-2xl shadow-lg">
+            </div>
+        </div>
+
+        <!-- Page 5: Happy Birthday Tiyas -->
+        <div v-if="currentPage === 5" class="min-h-screen flex flex-col items-center justify-center p-4 relative z-20 fade-in">
+            <div class="max-w-3xl w-full text-center">
+                <h1 class="text-7xl md:text-8xl dancing-script gradient-text mb-6 font-bold">
+                    Happy Birthday
+                </h1>
+                <h2 class="text-6xl md:text-7xl playfair gradient-text mb-12 tiyas-glow font-bold">Tiyas</h2>
+                
+                <div class="glass-morphism p-12 rounded-3xl elegant-shadow mb-10">
+                    <p class="text-xl dark-text leading-relaxed playfair font-medium">
+                        Dear Tiyas, on this beautiful day, we celebrate the amazing person you are. 
+                        Your kindness lights up every room, your laughter is contagious, 
+                        and your presence makes the world a better place.
+                    </p>
+                    <p class="mt-6 text-xl dark-text leading-relaxed playfair font-medium">
+                        May this new year bring you endless joy, wonderful surprises, 
+                        and all the happiness your heart can hold. You deserve the very best!
+                    </p>
+                    <div class="mt-8 text-3xl">🌸 ✨ 💕 ✨ 🌸</div>
+                </div>
+                
+                <button 
+                    @click="showModal = true"
+                    class="pink-button py-5 px-14 rounded-full text-xl transform transition-all duration-500 hover:scale-105 shimmer"
+                >
+                    One Last Surprise...
+                </button>
+            </div>
+        </div>
+
+        <!-- Birthday Modal -->
+        <div v-if="showModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+            <div class="glass-morphism p-12 rounded-3xl elegant-shadow max-w-md w-full">
+                <h3 class="text-3xl md:text-4xl dancing-script text-center mb-6 gradient-text font-bold">
+                    Birthday chahiye? 🎂
+                </h3>
+                <p class="text-xl text-center mb-10 dark-text playfair font-medium">
+                    Ab le bhi lo
+                </p>
+                
+                <div class="flex gap-6">
+                    <button 
+                        @click="showPartyModal = true"
+                        class="flex-1 bg-gradient-to-r from-blue-400 to-blue-500 text-white py-4 px-6 rounded-2xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shimmer"
+                    >
+                        Dedo
+                    </button>
+                    <button 
+                        @click="showModal = false"
+                        class="flex-1 bg-gradient-to-r from-purple-400 to-purple-500 text-white py-4 px-6 rounded-2xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shimmer"
+                    >
+                        Nahi chahiye
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Party Modal -->
+        <div v-if="showPartyModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+            <div class="glass-morphism p-12 rounded-3xl elegant-shadow max-w-md w-full">
+                <h3 class="text-3xl md:text-4xl dancing-script text-center mb-10 gradient-text font-bold">
+                    Pehle party de! 🎉
+                </h3>
+                
+                <button 
+                    @click="handlePartyClose"
+                    class="w-full bg-gradient-to-r from-green-400 to-teal-400 text-white py-4 px-8 rounded-2xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shimmer"
+                >
+                    Okay Tiyas! ✨
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    currentPage: 1,
+                    hearts: [
+                        { clicked: false },
+                        { clicked: false },
+                        { clicked: false },
+                        { clicked: false }
+                    ],
+                    heartsClicked: 0,
+                    showModal: false,
+                    showPartyModal: false
+                }
+            },
+            mounted() {
+                this.initAnimations();
+            },
+            methods: {
+                initAnimations() {
+                    // Create floating elements
+                    setInterval(() => this.createPetal(), 2500);
+                    setInterval(() => this.createSparkle(), 1200);
+                    
+                    // Animate elements on page load
+                    anime({
+                        targets: '.fade-in',
+                        opacity: [0, 1],
+                        translateY: [30, 0],
+                        duration: 1200,
+                        easing: 'easeOutQuart'
+                    });
+                },
+
+                createPetal() {
+                    const container = document.getElementById('petals-container');
+                    if (!container) return;
+                    
+                    const petal = document.createElement('div');
+                    petal.className = 'rose-petal floating-element';
+                    petal.style.left = Math.random() * 100 + '%';
+                    container.appendChild(petal);
+                    
+                    setTimeout(() => petal.remove(), 10000);
+                },
+
+                createSparkle() {
+                    const container = document.getElementById('sparkles-container');
+                    if (!container) return;
+                    
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'sparkle';
+                    sparkle.style.left = Math.random() * 100 + '%';
+                    sparkle.style.top = Math.random() * 100 + '%';
+                    container.appendChild(sparkle);
+                    
+                    anime({
+                        targets: sparkle,
+                        scale: [0, 1.2, 0],
+                        opacity: [0, 1, 0],
+                        duration: 2500,
+                        easing: 'easeInOutQuad',
+                        complete: () => sparkle.remove()
+                    });
+                },
+
+                goToPage(page) {
+                    this.currentPage = page;
+                    
+                    this.$nextTick(() => {
+                        anime({
+                            targets: '.fade-in',
+                            opacity: [0, 1],
+                            translateY: [30, 0],
+                            duration: 1000,
+                            easing: 'easeOutQuart'
+                        });
+                        
+                        if (page === 4) {
+                            setTimeout(() => this.goToPage(5), 3000);
+                        }
+                    });
+                },
+
+                clickHeart(index) {
+                    if (!this.hearts[index].clicked) {
+                        this.hearts[index].clicked = true;
+                        this.heartsClicked++;
+                        
+                        // Create heart burst effect
+                        this.createHeartBurst(event);
+                        
+                        if (this.heartsClicked === 4) {
+                            setTimeout(() => this.goToPage(4), 600);
+                        }
+                    }
+                },
+
+                createHeartBurst(event) {
+                    const colors = ['#ff4081', '#ff6ec7', '#ff80ab', '#ff4081'];
+                    for (let i = 0; i < 12; i++) {
+                        const particle = document.createElement('div');
+                        particle.style.position = 'fixed';
+                        particle.style.width = '12px';
+                        particle.style.height = '12px';
+                        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                        particle.style.borderRadius = '50%';
+                        particle.style.pointerEvents = 'none';
+                        particle.style.left = event.clientX + 'px';
+                        particle.style.top = event.clientY + 'px';
+                        particle.style.zIndex = '100';
+                        particle.style.boxShadow = '0 0 6px rgba(255, 64, 129, 0.6)';
+                        document.body.appendChild(particle);
+                        
+                        anime({
+                            targets: particle,
+                            translateX: anime.random(-150, 150),
+                            translateY: anime.random(-150, 150),
+                            scale: [1, 0],
+                            opacity: [1, 0],
+                            duration: 1200,
+                            easing: 'easeOutExpo',
+                            complete: () => particle.remove()
+                        });
+                    }
+                },
+
+                handlePartyClose() {
+                    this.showPartyModal = false;
+                    this.showModal = false;
+                    
+                    // Create celebration effect for Tiyas
+                    const emojis = ['✨', '💕', '🌸', '💖', '🦋', '🌟', '💝'];
+                    for (let i = 0; i < 40; i++) {
+                        const emoji = document.createElement('div');
+                        emoji.style.position = 'fixed';
+                        emoji.style.fontSize = '28px';
+                        emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                        emoji.style.left = '50%';
+                        emoji.style.top = '50%';
+                        emoji.style.pointerEvents = 'none';
+                        emoji.style.zIndex = '1000';
+                        document.body.appendChild(emoji);
+                        
+                        anime({
+                            targets: emoji,
+                            translateX: anime.random(-250, 250),
+                            translateY: anime.random(-250, 250),
+                            scale: [0, 1.8, 0],
+                            rotate: anime.random(-180, 180),
+                            opacity: [0, 1, 0],
+                            duration: 2500,
+                            delay: i * 60,
+                            easing: 'easeOutExpo',
+                            complete: () => emoji.remove()
+                        });
+                    }
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
